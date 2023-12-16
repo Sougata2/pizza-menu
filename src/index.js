@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 // Pizza data
 const pizzaData = [
   {
@@ -49,7 +50,7 @@ const pizzaData = [
 // Main
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -62,25 +63,31 @@ function Pizza() {
   return (
     <div>
       <img src="pizzas\focaccia.jpg" alt="..." />
-      <h2>{pizzaData[0].name}</h2>
+      <h3>{pizzaData[0].name}</h3>
       <p>{pizzaData[0].ingredients}</p>
     </div>
   );
 }
 
 function Header() {
-  const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
-  return <h1 style={style}>Fast React Pizza Co.</h1>;
+  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+  // return <h1 style={style}>Fast React Pizza Co.</h1>;
+  const style = {};
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 }
 
@@ -91,7 +98,7 @@ function Footer() {
   const isOpen = hour >= openHour && hour <= closeHour;
   // return React.createElement("footer", null, "We're currently open!");
   return (
-    <footer>
+    <footer className="footer">
       {new Date().toLocaleTimeString()}, We're currently{" "}
       {isOpen ? "Open" : "Closed"}
     </footer>

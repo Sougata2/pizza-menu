@@ -57,10 +57,10 @@ body {
   display: block;
   content: '';
   height: 3px;
-  width: 12rem;
+  width: 10rem;
   background-color: #edc84b;
   position: absolute;
-  top: calc(50% - 1px);
+  top: 7rem;
 }
 
 .header h1::before {
