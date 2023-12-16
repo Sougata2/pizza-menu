@@ -59,12 +59,15 @@ function App() {
 }
 
 // Functions
-function Pizza() {
+function Pizza(props) {
   return (
-    <div>
-      <img src="pizzas\focaccia.jpg" alt="..." />
-      <h3>{pizzaData[0].name}</h3>
-      <p>{pizzaData[0].ingredients}</p>
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
     </div>
   );
 }
@@ -84,9 +87,18 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name={pizzaData[0].name}
+        ingredients={pizzaData[0].ingredients}
+        price={pizzaData[0].price}
+        photoName={pizzaData[0].photoName}
+      />
+      <Pizza
+        name={pizzaData[1].name}
+        ingredients={pizzaData[1].ingredients}
+        price={pizzaData[1].price}
+        photoName={pizzaData[1].photoName}
+      />
     </main>
   );
 }
