@@ -61,14 +61,14 @@ function App() {
 // Functions
 function Pizza(props) {
   return (
-    <div className="pizza">
-      <img src={props.photoName} alt={props.name} />
+    <li className="pizza">
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
@@ -83,22 +83,21 @@ function Header() {
   );
 }
 
+function PizzaList() {
+  return (
+    <ul className="pizzas">
+      {pizzaData.map((value, index, array) => {
+        return <Pizza pizzaObj={value} key={value.name} />;
+      })}
+    </ul>
+  );
+}
+
 function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza
-        name={pizzaData[0].name}
-        ingredients={pizzaData[0].ingredients}
-        price={pizzaData[0].price}
-        photoName={pizzaData[0].photoName}
-      />
-      <Pizza
-        name={pizzaData[1].name}
-        ingredients={pizzaData[1].ingredients}
-        price={pizzaData[1].price}
-        photoName={pizzaData[1].photoName}
-      />
+      <PizzaList />
     </main>
   );
 }
