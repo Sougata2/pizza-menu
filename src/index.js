@@ -94,10 +94,11 @@ function PizzaList() {
 }
 
 function Menu() {
+  const pizza = pizzaData;
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <PizzaList />
+      {pizza.length > 0 && <PizzaList />}
     </main>
   );
 }
@@ -110,8 +111,12 @@ function Footer() {
   // return React.createElement("footer", null, "We're currently open!");
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()}, We're currently{" "}
-      {isOpen ? "Open" : "Closed"}
+      {isOpen && (
+        <div className="order">
+          <p>We're open till {closeHour}:00. Come visit us or order online.</p>
+          <button className="btn">Order Now</button>
+        </div>
+      )}
     </footer>
   );
 }
