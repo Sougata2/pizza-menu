@@ -98,7 +98,11 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      {pizza.length > 0 && <PizzaList />}
+      {pizza.length > 0 ? (
+        <PizzaList />
+      ) : (
+        <p>We are still working on it, Please come back later!</p>
+      )}
     </main>
   );
 }
