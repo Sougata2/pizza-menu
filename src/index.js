@@ -61,12 +61,12 @@ function App() {
 // Functions
 function Pizza({ pizzaObj }) {
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out": ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
-        <span>{pizzaObj.price}</span>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
   );
@@ -115,7 +115,7 @@ function Footer() {
   // return React.createElement("footer", null, "We're currently open!");
   return (
     <footer className="footer">
-      {isOpen && <Order closeHour={closeHour} openHour={openHour}/>}
+      {isOpen && <Order closeHour={closeHour} openHour={openHour} />}
     </footer>
   );
 }
@@ -123,7 +123,10 @@ function Footer() {
 function Order({ closeHour, openHour }) {
   return (
     <div className="order">
-      <p>We're open from {openHour}:00 to {closeHour}:00. Come visit us or order online.</p>
+      <p>
+        We're open from {openHour}:00 to {closeHour}:00. Come visit us or order
+        online.
+      </p>
       <button className="btn">Order Now</button>
     </div>
   );
